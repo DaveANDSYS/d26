@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Installer un environnement XAMPP avec PostgreSQL sous Linux</title>
+<meta name="description" content="Quelques retours d&#39;expériences de l&#39;utilisation des méthodes, des technologies et des outils principalement libres dont je me sers à des fins professionnelles, utilitaires ou de divertissement.">
+<meta name="generator" content="Hugo 0.38.2" />
+<meta property="og:title" content="Installer un environnement XAMPP avec PostgreSQL sous Linux" />
+<meta property="og:description" content="Comment installer et configurer un environnement de dévelopement LAMPP (Linux-Apache-MariaDB-PostgreSQL-PHP) ?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://github.com/DaveANDSYS/d26/post/install-xampp-linux/" />
+
+
+
+<meta property="article:published_time" content="2017-10-24T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2017-10-24T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+<link rel="dns-prefetch" href="//fonts.gstatic.com" />
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700" type="text/css" media="all" />
+<link rel="stylesheet" href="/DaveANDSYS/d26/css/style.css" type="text/css" media="all" />
+<script type="text/javascript" src="/DaveANDSYS/d26/js/scripts.js"></script>
+<link rel="shortcut icon" href="/DaveANDSYS/d26/favicon.ico">
+
+</head>
+<body class="body body-right-sidebar mobile" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+	<div class="container container-outer">
+		<header class="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+			<div class="container container-inner clearfix">
+				<div class="logo" role="banner" itemscope="itemscope" itemtype="http://schema.org/Brand">
+					<a class="logo__link" href="/DaveANDSYS/d26" title="d26" rel="home">
+						<h1 class="logo__title">d26</h1>
+						<h2 class="logo__tagline">Mes notes sur les thèmes de l&#39;administration système, le réseau, le développement, les loisirs numériques et autres.</h2>
+					</a>
+				</div>
+			</div>
+			
+<nav class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<ul class="menu__list">
+		<li class="menu__item"><a class="menu__link" href="/DaveANDSYS/d26/post/a_propos/">A PROPOS DE...</a></li>
+	</ul>
+</nav>
+
+		</header>
+		<div class="wrapper clearfix">
+
+<main class="main-content content" role="main" itemprop="mainContentOfPage">
+	<article class="post">
+		<header class="post__header clearfix">
+			<h1 class="post__title">Installer un environnement XAMPP avec PostgreSQL sous Linux</h1>
+			<p class="post__meta meta">
+				<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+				<time class="post__meta-date" datetime="2017-10-24T00:00:00">October 24, 2017</time>
+				<span class="post__meta-categories meta-categories">
+					<svg class="icon icon-category" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+					<a class="meta-categories__link" href="/DaveANDSYS/d26/categories/d%c3%a9veloppement" rel="category">Développement</a>, <a class="meta-categories__link" href="/DaveANDSYS/d26/categories/php" rel="category">PHP</a></span>
+			</p>
+		</header>
+		<div class="post__content clearfix">
+			<figure class="post__thumbnail">
+				<img src="/DaveANDSYS/d26/img/xampp/xampp-logo-2000x1044.png" alt="Installer un environnement XAMPP avec PostgreSQL sous Linux">
+			</figure>
+			
+
+<h2 id="prérequis">Prérequis</h2>
+
+<p>L&rsquo;installation sera réalisée sur une machine disposant des ressources nécessaires au fonctionnement des éléments de la pile <strong>Xampp</strong> avec une base de données <strong>PostgreSQL</strong>. Les outils de développements se résument à un éditeur de texte ; <strong>Sublime-text</strong> ou <strong>Atom</strong> dans cet exposé.</p>
+
+<p>Le compte Unix qui sera utilisé pour l&rsquo;installation est <strong>&ldquo;operateur&rdquo;</strong>. Il fait partie du groupe <strong>&ldquo;sudo&rdquo;</strong>, c&rsquo;est à dire qu&rsquo;il a la possibilité d&rsquo;invoquer la commande sudo pour exécuter des commandes avec les droits super-utilisateur.</p>
+
+<h2 id="objectif">Objectif</h2>
+
+<p>L&rsquo;objectif est de disposer d&rsquo;un contexte de développement reproduisant un environnement de production, en concentrant les services (serveur http, base de données etc.) dans un répertoire qu&rsquo;il suffira de supprimer ou de copier selon nos besoins. On ne touche pas à la distribution : on n&rsquo;installe pas les composants &ldquo;serveurs&rdquo; par le système de paquetages classiques.</p>
+
+<p>Outre que l&rsquo;on dispose d&rsquo;une pile toujours à jour car il suffit d&rsquo;aller sur le site <strong><a href="http://www.apachefriends.org">http://www.apachefriends.org</a></strong> pour télécharger la dernière version de notre environnement Lampp, l&rsquo;avantage est qu&rsquo;on pourra démarrer et arrêter plus facilement les services et ne les activer que lorsqu&rsquo;on sera en mode &ldquo;développement&rdquo;. On n&rsquo;alourdit pas le système avec des services (httpd/php, postgresql, mariadb) qui sont lancés au démarrage et consomment des ressources lorsqu&rsquo;on n&rsquo;en a pas besoin. Il est évident que même installés avec le système de paquetages classique, les services peuvent être lancés et arrêtés à la demande, mais le fait d&rsquo;utiliser <strong>Xampp</strong> permet de s&rsquo;affranchir des aléas liés à la fréquence de mises à jour de la pile Apache/Php/MariaDb des responsables de la distribution.</p>
+
+<h2 id="téléchargement-et-installation">Téléchargement et installation</h2>
+
+<p>Comme on l&rsquo;a dit plus haut, la pile <strong>Xampp</strong> pour Linux est téléchargeable depuis la page d&rsquo;accueil du projet <strong><a href="http://www.apachefriends.org">http://www.apachefriends.org</a></strong> Une fois sur la page d&rsquo;accueil, cliquer sur le lien <strong>&ldquo;Download&rdquo;</strong> pour aller à la page de téléchargement.
+Cette page présente les versions les plus à jour de <strong>Xampp</strong> pour chaque système d&rsquo;exploitation supporté. Nous nous intéressons à la version Linux désignée par l&rsquo;entête <strong>&ldquo;XAMPP for Linux 5.6.31, 7.0.24 &amp; 7.1.10&rdquo;</strong>.</p>
+
+<p>Une fois téléchargé, il faut rendre le fichier exécutable car c&rsquo;est un programme d&rsquo;installation qu&rsquo;il convient de lancer et non d&rsquo;une archive à décompacter comme c&rsquo;est souvent le cas.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">$ chmod 744 xampp-linux-x64-7.1.10-0-installer.run</code></pre></div>
+
+<p>On lance l&rsquo;installation en mode super-utilisateur :</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">$ sudo -i
+# xampp-linux-x64-7.1.10-0-installer.run</code></pre></div>
+
+<p>Après l&rsquo;affichage du logo de Bitnami, la première boite de dialogue s&rsquo;affiche :</p>
+
+<p><img src="../img/xampp/xampp-install-01.png" alt="Etape 1" /></p>
+
+<p>On clique sur le bouton <strong>&ldquo;Next&rdquo;</strong>.</p>
+
+<p><img src="../img/xampp/xampp-install-02.png" alt="Etape 2" /></p>
+
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="m4.73135 3.3795002q0-.5597-.39604-.9557-.39604-.3961-.95577-.3961-.55974 0-.95578.3961-.39604.396-.39604.9557 0 .5598.39604.9558.39604.3961.95578.3961.55973 0 .95577-.3961.39604-.396.39604-.9558zm11.26865 6.0832q0 .5596998-.39076.9504998l-5.18548 5.196q-.41188.3908-.9610504.3908-.55974 0-.9505-.3908l-7.5511496-7.5616998q-.40132-.3907-.68119-1.0666-.27987-.6759-.27987-1.2357v-4.3934q0-.54920004.40132-.95050004.40132-.4013.9505-.4013h4.39339q.55974 0 1.23565.2799.67591.2798 1.07723.6812l7.55115 7.54060004q.39076.4118.39076.961z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link" href="/DaveANDSYS/d26/tags/code/" rel="tag">code</a></li>
+		<li class="tags__item"><a class="tags__link" href="/DaveANDSYS/d26/tags/http/" rel="tag">http</a></li>
+		<li class="tags__item"><a class="tags__link" href="/DaveANDSYS/d26/tags/php/" rel="tag">php</a></li>
+		<li class="tags__item"><a class="tags__link" href="/DaveANDSYS/d26/tags/d%C3%A9veloppement/" rel="tag">développement</a></li>
+	</ul>
+</div>
+
+	</article>
+	
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="d26 avatar" src="/DaveANDSYS/d26/img/logo_d26_fond_blanc_128x128.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About d26</span>
+	</div>
+	<div class="authorbox__description">
+		L&#39;identité de d26 n&#39;est pas vraiment connue. Peut-être s&#39;agit-il d&#39;un blogueur connu. Personne ne le sait.
+	</div>
+</div>
+	
+<nav class="post-nav row clearfix" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<div class="post-nav__item post-nav__item--prev col-1-2">
+		<a class="post-nav__link" href="/DaveANDSYS/d26/post/test/" rel="prev"><span class="post-nav__caption">«Previous</span><p class="post-nav__post-title">Test</p></a>
+	</div>
+</nav>
+
+	
+</main>
+
+<aside class="sidebar" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+	
+<div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="//google.com/search">
+		<label>
+			<span class="screen-reader-text">Search for:</span>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://github.com/DaveANDSYS/d26" />
+	</form>
+</div>
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/DaveANDSYS/d26/post/install-xampp-linux/">Installer un environnement XAMPP avec PostgreSQL sous Linux</a></li>
+			<li class="widget__item"><a class="widget__link" href="/DaveANDSYS/d26/post/test/">Test</a></li>
+			<li class="widget__item"><a class="widget__link" href="/DaveANDSYS/d26/post/a_propos/">A propos de...</a></li>
+			<li class="widget__item"><a class="widget__link" href="/DaveANDSYS/d26/post/creer-un-depot-github/">Créer un dépôt GitHub</a></li>
+			<li class="widget__item"><a class="widget__link" href="/DaveANDSYS/d26/post/initialiser-un-projet-git/">Initialiser un projet Git</a></li>
+			<li class="widget__item"><a class="widget__link" href="/DaveANDSYS/d26/post/install-et-config-sublim/">Installer, configurer et personnaliser Sublime-text</a></li>
+			<li class="widget__item"><a class="widget__link" href="/DaveANDSYS/d26/post/about-hugo/">A propos de Hugo</a></li>
+		</ul>
+	</div>
+</div>
+
+	
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/DaveANDSYS/d26/categories/d%c3%a9veloppement">Développement</a></li>
+			<li class="widget__item"><a class="widget__link" href="/DaveANDSYS/d26/categories/git">Git</a></li>
+			<li class="widget__item"><a class="widget__link" href="/DaveANDSYS/d26/categories/github">Github</a></li>
+			<li class="widget__item"><a class="widget__link" href="/DaveANDSYS/d26/categories/php">Php</a></li>
+		</ul>
+	</div>
+</div>
+	
+
+	
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget__link widget__link--taglist" href="/DaveANDSYS/d26/tags/code" title="code">code</a>
+		<a class="widget__link widget__link--taglist" href="/DaveANDSYS/d26/tags/d%c3%a9veloppement" title="développement">développement</a>
+		<a class="widget__link widget__link--taglist" href="/DaveANDSYS/d26/tags/editeur" title="editeur">editeur</a>
+		<a class="widget__link widget__link--taglist" href="/DaveANDSYS/d26/tags/git" title="git">git</a>
+		<a class="widget__link widget__link--taglist" href="/DaveANDSYS/d26/tags/github" title="github">github</a>
+		<a class="widget__link widget__link--taglist" href="/DaveANDSYS/d26/tags/http" title="http">http</a>
+		<a class="widget__link widget__link--taglist" href="/DaveANDSYS/d26/tags/linux" title="linux">linux</a>
+		<a class="widget__link widget__link--taglist" href="/DaveANDSYS/d26/tags/php" title="php">php</a>
+		<a class="widget__link widget__link--taglist" href="/DaveANDSYS/d26/tags/syst%c3%a8me" title="système">système</a>
+		<a class="widget__link widget__link--taglist" href="/DaveANDSYS/d26/tags/vcs" title="vcs">vcs</a>
+		<a class="widget__link widget__link--taglist" href="/DaveANDSYS/d26/tags/web" title="web">web</a>
+	</div>
+</div>
+</aside>
+
+	</div>
+		<footer class="footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+			<div class="container container-inner">
+				<p class="footer__copyright">&copy; 2018 d26. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad theme</a>.</span></p>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script>
+</body>
+</html>

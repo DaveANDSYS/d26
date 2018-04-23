@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Système on d26</title>
+    <link>https://github.com/DaveANDSYS/d26/tags/syst%C3%A8me/</link>
+    <description>Recent content in Système on d26</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-FR</language>
+    <lastBuildDate>Thu, 28 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://github.com/DaveANDSYS/d26/tags/syst%C3%A8me/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Créer un dépôt GitHub</title>
+      <link>https://github.com/DaveANDSYS/d26/post/creer-un-depot-github/</link>
+      <pubDate>Thu, 28 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://github.com/DaveANDSYS/d26/post/creer-un-depot-github/</guid>
+      <description>Qu&amp;rsquo;est-ce que GitHub ? GitHub est un service d&amp;rsquo;hébergement de dépôts Git dans le Cloud. Il offre une interface web pratique pour gérer, éditer et partager les fichiers d&amp;rsquo;un projet sur un dépôt Git distant. A l&amp;rsquo;origine, Github a été créé pour permettre la gestion de projets Opensource de grande ampleur. Mais au fil du temps, la plateforme a attiré des projets de tous types, qu&amp;rsquo;ils soient à l&amp;rsquo;initiative d&amp;rsquo;organisations ou d&amp;rsquo;individus.</description>
+    </item>
+    
+  </channel>
+</rss>

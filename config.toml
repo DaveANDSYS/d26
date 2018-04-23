@@ -1,0 +1,32 @@
+baseurl = "https://github.com/DaveANDSYS/d26"
+title = "d26"
+publishDir = "docs"
+languageCode = "fr-FR"
+paginate = "10" # Number of posts per page
+theme = "mainroad"
+disqusShortname = "" # Enable comments by entering your Disqus shortname
+googleAnalytics = "" # Enable Google Analytics by entering your tracking id
+
+[Author]
+    name = "d26"
+    bio = "L'identité de d26 n'est pas vraiment connue. Peut-être s'agit-il d'un blogueur connu. Personne ne le sait."
+    avatar = "img/logo_d26_fond_blanc_128x128.png"
+
+
+[Params]
+    subtitle = "Mes notes sur les thèmes de l'administration système, le réseau, le développement, les loisirs numériques et autres." # Subtitle of your site
+    description = "Quelques retours d'expériences de l'utilisation des méthodes, des technologies et des outils principalement libres dont je me sers à des fins professionnelles, utilitaires ou de divertissement." # Description of your site
+    opengraph = true
+    readmore = true # Show "Read more" button in list if true
+    leftsidebar = false # Move sidebar to the left side if true
+    authorbox = true
+    post_navigation = true
+    postSections = ["post"]
+
+
+[Params.widgets]
+    search = true # Enable "Search" widget
+    recent_articles = true # Enable "Recent arcticles" widget
+    categories = true # Enable "Categories" widget
+    tags = true # Enable "Tags" widget
+    tags_counter = false # Enable counter for each tag in "Tags" widget (disabled by default)

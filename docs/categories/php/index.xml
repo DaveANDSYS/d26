@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Php on d26</title>
+    <link>https://github.com/DaveANDSYS/d26/categories/php/</link>
+    <description>Recent content in Php on d26</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-FR</language>
+    <lastBuildDate>Tue, 24 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://github.com/DaveANDSYS/d26/categories/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Installer un environnement XAMPP avec PostgreSQL sous Linux</title>
+      <link>https://github.com/DaveANDSYS/d26/post/install-xampp-linux/</link>
+      <pubDate>Tue, 24 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://github.com/DaveANDSYS/d26/post/install-xampp-linux/</guid>
+      <description>Prérequis L&amp;rsquo;installation sera réalisée sur une machine disposant des ressources nécessaires au fonctionnement des éléments de la pile Xampp avec une base de données PostgreSQL. Les outils de développements se résument à un éditeur de texte ; Sublime-text ou Atom dans cet exposé.
+Le compte Unix qui sera utilisé pour l&amp;rsquo;installation est &amp;ldquo;operateur&amp;rdquo;. Il fait partie du groupe &amp;ldquo;sudo&amp;rdquo;, c&amp;rsquo;est à dire qu&amp;rsquo;il a la possibilité d&amp;rsquo;invoquer la commande sudo pour exécuter des commandes avec les droits super-utilisateur.</description>
+    </item>
+    
+  </channel>
+</rss>

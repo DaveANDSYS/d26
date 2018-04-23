@@ -1,0 +1,11 @@
+{{ partial "header.html" . }}
+
+<main class="main-content content" role="main" itemprop="mainContentOfPage">
+	<div class="warning">
+		<h1 class="warning__headline">404. Page introuvable</h1>
+		<p class="warning__text">La page que vous souhaitez consulter a peut-être été déplacée, supprimée ou elle n'existe pas. Merci d'utiliser la recherche ou de consulter <a href="{{ "" | relLangURL }}">la page d'accueil</a>.</p>
+	</div>
+</main>
+
+{{ partial "sidebar.html" . }}
+{{ partial "footer.html" . }}

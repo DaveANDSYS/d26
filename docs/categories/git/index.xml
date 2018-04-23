@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on d26</title>
+    <link>https://github.com/DaveANDSYS/d26/categories/git/</link>
+    <description>Recent content in Git on d26</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-FR</language>
+    <lastBuildDate>Tue, 15 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://github.com/DaveANDSYS/d26/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Initialiser un projet Git</title>
+      <link>https://github.com/DaveANDSYS/d26/post/initialiser-un-projet-git/</link>
+      <pubDate>Tue, 15 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://github.com/DaveANDSYS/d26/post/initialiser-un-projet-git/</guid>
+      <description>Prérequis Git est installé et opérationnel sur le poste de travail. Un dépôt a été créé sur GitHub. Il ne contient quer les fichiers créés automatiquement par la pateforme GitHub.
+Objectif L&amp;rsquo;idée est de répliquer le contenu d&amp;rsquo;un dépôt local stocké sur mon poste de travail sur un dépôt GitHub afin de partager le code source et disposer d&amp;rsquo;une copie de sauvegarde de mon projet.
+Rappel GitHub est gratuit pour les projets dont le code est opensource.</description>
+    </item>
+    
+  </channel>
+</rss>

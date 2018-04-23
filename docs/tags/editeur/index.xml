@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Editeur on d26</title>
+    <link>https://github.com/DaveANDSYS/d26/tags/editeur/</link>
+    <description>Recent content in Editeur on d26</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-FR</language>
+    <lastBuildDate>Tue, 15 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://github.com/DaveANDSYS/d26/tags/editeur/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Installer, configurer et personnaliser Sublime-text</title>
+      <link>https://github.com/DaveANDSYS/d26/post/install-et-config-sublim/</link>
+      <pubDate>Tue, 15 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://github.com/DaveANDSYS/d26/post/install-et-config-sublim/</guid>
+      <description>Qu&amp;rsquo;est-ce que Sublime-text ? Sublime-text est un éditeur de code multi-langages, multi-plateformes (Windows, Mac et Linux), rapide (écrit en C++ et en Python). Plus de 40 langages de programmation sont supportés pour lesquels Sublime-text propose la coloration syntaxique.
+Sublime-text est doté d&amp;rsquo;un gestionnaire de paquetages (package manager) qui permet à l&amp;rsquo;utilisateur de personnaliser son environnement en l&amp;rsquo;enrichissant de fonctionnalités et en modifiant les paramètres de visualisation (thèmes, fontes, couleurs).</description>
+    </item>
+    
+  </channel>
+</rss>
