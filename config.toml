@@ -1,4 +1,4 @@
-baseurl = "https://github.com/DaveANDSYS/d26"
+baseurl = "/"
 title = "d26"
 publishDir = "docs"
 languageCode = "fr-FR"
