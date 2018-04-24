@@ -1,6 +1,6 @@
 baseurl = "/"
 title = "d26"
-publishDir = "docs"
+publishDir = "public"
 languageCode = "fr-FR"
 paginate = "10" # Number of posts per page
 theme = "mainroad"
